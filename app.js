@@ -9,9 +9,14 @@ db.authenticate()
   .catch(err => console.log("Some error occured:" + err));
 
 const app = express();
+
 app.get("/", (req, res) => {
   res.send("Hello Project started");
 });
+
+/*Routes  */
+app.use("/gigs", require("./routes/gigs"));
+
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, console.log(`app has started at ${PORT}`));
