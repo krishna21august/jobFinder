@@ -10,6 +10,11 @@ db.authenticate()
 
 const app = express();
 
+//middleware for handelbars
+//we are setting handlebars as our template engine and setting default layout to main.js
+app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+app.set("view engine", "handlebars");
+
 app.get("/", (req, res) => {
   res.send("Hello Project started");
 });
